@@ -11,6 +11,7 @@ public class Personne {
 		private String nom;
 		private String prenom;
 		private int age;
+		private String adresse;
 		private int version;
 
 		public Personne(){
