@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ajc.projetfinal.repo.PersonneRepository;
 
-@SpringBootApplication
-@EnableJpaRepositories("com.ajc.projetfinal.repo.PersonneRepository")
+
 @Service
 public class ConsoleService implements CommandLineRunner {
 	

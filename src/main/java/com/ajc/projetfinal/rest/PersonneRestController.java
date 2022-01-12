@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ajc.projetfinal.model.Personne;
 import com.ajc.projetfinal.repo.PersonneRepository;
-@SpringBootApplication
-@EnableJpaRepositories("com.ajc.projetfinal.repo")
+
 @RestController
 @RequestMapping("/rest")
 public class PersonneRestController {
 
 	@Autowired
 	private PersonneRepository repo;
-
+	
+	@CrossOrigin
 	@GetMapping("/hello")
 	public String getHello() {
 		// localhost:8080/formation/rest/hello -> le nom formation a été ajouté
@@ -34,6 +34,7 @@ public class PersonneRestController {
 		return "Hello";
 	}
 
+	@CrossOrigin
 	@GetMapping("/personnes")
 	public List<Personne> getAllPersonnes() {
 		return repo.findAll();
