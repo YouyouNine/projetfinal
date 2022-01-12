@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,12 +54,57 @@ public class PersonneRestController {
 	@GetMapping("/personnes/{username}/{password}")
 	public Personne findByUserAndPass(@PathVariable(name = "username") String username,
 			@PathVariable(name = "password") String password) {
-//		Personne p = new Personne();
-//		p.setEmail("hello");
-//		return p;
+		Personne p = repo.findByUsername(username);
+		
+		if(p != null){
+			System.out.println(" user ok");
+			if(p.getPassword().equals(password)){
+				System.out.println(" pass ok");
+			} else {
+				p = new Personne();
+				p.setTitle("pass not ok");
+			}
+		} else {
+			p = new Personne();
+			p.setTitle("user not ok");;
+		}
+
+		System.out.println("**************************" + p);
 		return repo.findByUsernameAndPassword(username, password);
 
 	}
+	
+//	@CrossOrigin
+//	@GetMapping("/personnes/{username}/{password}")
+//	public ResponseEntity<Personne> findByUsernameAndPassword(@PathVariable(name = "username") String username,
+//			@PathVariable(name = "password") String password) {
+//		ResponseEntity<Personne> responseEntity;
+//		Personne p = repo.findByUsername(username);
+//		
+//		if(p != null){
+//			System.out.println(" user ok");
+//			if(p.getPassword().equals(password)){
+//				responseEntity = new ResponseEntity<Personne>(p,
+//						HttpStatus.ACCEPTED);
+//				System.out.println(" pass ok");
+//			} else {
+////				p = new Personne();
+//				responseEntity = new ResponseEntity<Personne>(new Personne(),
+//						HttpStatus.NOT_FOUND);
+//				p.setTitle("pas not ok");
+//			}
+//		} else {
+//			responseEntity = new ResponseEntity<Personne>(new Personne(),
+//					HttpStatus.NO_CONTENT);
+////			p = new Personne();
+//			p.setTitle("user not ok");;
+//		}
+//
+//		System.out.println("**************************" + p);
+//		return responseEntity;
+////		return repo.findByUsernameAndPassword(username, password);
+//
+//	}
 
 	// @CrossOrigin
 	// @PostMapping("/personnes")
