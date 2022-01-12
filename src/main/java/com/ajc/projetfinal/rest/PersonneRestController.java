@@ -47,7 +47,6 @@ public class PersonneRestController {
 	 @CrossOrigin
 	@PostMapping("/personnes")
 	public void create(@RequestBody Personne personne) {
-		
 	this.repo.save(personne);
 		
 	}
