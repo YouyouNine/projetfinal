@@ -44,6 +44,7 @@ public class PersonneRestController {
 	@PostMapping("/personnes")
 	public void create(@RequestBody Personne personne) {
 
+
 		this.repo.save(personne);
 
 	}
@@ -71,6 +72,7 @@ public class PersonneRestController {
 
 		System.out.println("**************************" + p);
 		return repo.findByUsernameAndPassword(username, password);
+	this.repo.save(personne);
 
 	}
 	
