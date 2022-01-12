@@ -18,8 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ajc.projetfinal.model.Personne;
 import com.ajc.projetfinal.repo.PersonneRepository;
-@SpringBootApplication
-@EnableJpaRepositories("com.ajc.projetfinal.repo")
+
 @RestController
 @RequestMapping("/rest")
 public class PersonneRestController {
