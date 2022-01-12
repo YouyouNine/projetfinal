@@ -22,14 +22,16 @@ public class ProduitRestController {
 
 	@Autowired
 	private ProduitRepository repo;
-
+	
+	@CrossOrigin
 	@GetMapping("/hello1")
 	public String getHello() {
 		// localhost:8080/formation/rest/hello -> le nom formation a été ajouté
 		// dans l'application properties
 		return "Hello";
 	}
-
+	
+	@CrossOrigin
 	@GetMapping("/produit")
 	public List<Produit> getAllPersonnes() {
 		return repo.findAll();
