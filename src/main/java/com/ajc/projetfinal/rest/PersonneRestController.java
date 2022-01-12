@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ajc.projetfinal.model.Personne;
 import com.ajc.projetfinal.repo.PersonneRepository;
 @SpringBootApplication
-@EnableJpaRepositories("com.ajc.projetfinal.repo.PersonneRepository")
+@EnableJpaRepositories("com.ajc.projetfinal.repo")
 @RestController
 @RequestMapping("/rest")
 public class PersonneRestController {
@@ -52,7 +52,10 @@ public class PersonneRestController {
 	@GetMapping("/personnes/{username}/{password}")
 	public Personne findByUserAndPass(@PathVariable(name = "username") String username,
 			@PathVariable(name = "password") String password) {
-		return repo.findByUserAndPass(username, password);
+//		Personne p = new Personne();
+//		p.setEmail("hello");
+//		return p;
+		return repo.findByUsernameAndPassword(username, password);
 
 	}
 

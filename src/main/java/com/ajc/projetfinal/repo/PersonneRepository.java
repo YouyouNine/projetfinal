@@ -10,5 +10,6 @@ public interface PersonneRepository extends JpaRepository<Personne, String> {
 //	List<Personne> findByNom(String nom);
 	//List<Personne> findByNomContaining(String nom);
 //	List<Personne> findAllByOrderByNomAsc();
-	Personne findByUserAndPass(String username, String password);
+	Personne findByUsernameAndPassword(String username, String password);
+	//Personne findBy
 }
