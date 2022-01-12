@@ -3,10 +3,9 @@ package com.ajc.projetfinal.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +42,21 @@ public class ProduitRestController {
 	public void create(@RequestBody Produit personne) {
 		this.repo.save(personne);
 	}
+	
+	@CrossOrigin
+	@GetMapping("/produit/nom/{nom}")
+	public List<Produit> findByMarque(@PathVariable(name = "nom") String nom) {
 
+		return this.repo.findByNomContaining(nom);
+	}
+	
+	@CrossOrigin
+	@GetMapping("/produit/prix/{min}/{max}")
+	public List<Produit> findByPrix(@PathVariable(name = "min") int min, @PathVariable(name = "max") int max) {
+		System.out.println("toto");
+		return this.repo.findByPrixBetween(min, max);
+	}
 
+	
 
 }
