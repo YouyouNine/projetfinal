@@ -72,7 +72,6 @@ public class PersonneRestController {
 
 		System.out.println("**************************" + p);
 		return repo.findByUsernameAndPassword(username, password);
-	this.repo.save(personne);
 
 	}
 	
