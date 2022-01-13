@@ -12,6 +12,7 @@ public class Produit {
 	private int prix;
 	private String description;
 	private String lienImage;
+	private int quantite;
 	
 	@Version
 	private int version;
@@ -26,6 +27,17 @@ public class Produit {
 		this.prix = prix;
 		this.description = description;
 		this.lienImage = lienImage;
+		this.version = version;
+	}
+
+	public Produit(int id, String nom, int prix, String description, String lienImage, int quantite, int version) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prix = prix;
+		this.description = description;
+		this.lienImage = lienImage;
+		this.quantite = quantite;
 		this.version = version;
 	}
 
@@ -85,7 +97,14 @@ public class Produit {
 		this.version = version;
 	}
 
-	
+	public int getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
 	public String toString() {
 		return "Produit [id=" + id + ", nom=" + nom + ", prix=" + prix + ", description=" + description + ", lienImage="
 				+ lienImage + "]";
