@@ -65,12 +65,12 @@ public class ProduitRestController {
 	}
 
 	
-	@CrossOrigin
-	@GetMapping("/produit/{id}")
-	public Produit findById(@PathVariable(name = "id") Integer id) {
-		return this.repo.findById(id).get();
-
-	}
+//	@CrossOrigin
+//	@GetMapping("/produit/{id}")
+//	public Produit findById(@PathVariable(name = "id") Integer id) {
+//		return this.repo.findById(id).get();
+//
+//	}
 	
 
 }
