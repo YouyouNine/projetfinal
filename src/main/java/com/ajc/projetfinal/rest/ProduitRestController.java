@@ -35,6 +35,13 @@ public class ProduitRestController {
 	public List<Produit> getAllPersonnes() {
 		return repo.findAll();
 	}
+	
+	@CrossOrigin
+	@GetMapping("/produit/{id}")
+	public Produit getId(@PathVariable(name = "id") int id) {
+		System.out.println("toto******************");
+		return repo.findById(id).get();
+	}
 
 	// Pour la partie inscription
 	@CrossOrigin
