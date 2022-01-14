@@ -29,7 +29,7 @@ public class NewsletterRestController {
 	}
 	
 	@CrossOrigin
-	@PostMapping("/email")
+	@PostMapping("/email/{email}")
 	public void create(@RequestBody Newsletter newsletter) {
 		System.out.println("test");
 		this.repo.save(newsletter);
