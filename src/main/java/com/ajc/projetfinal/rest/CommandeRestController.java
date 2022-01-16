@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +31,12 @@ public class CommandeRestController {
 	@PostMapping("/commande")
 	public void create(@RequestBody Commande commande) {
 		this.repo.save(commande);
+	}
+	
+	@CrossOrigin
+	@GetMapping("/commande/{nom}")
+	public List<Commande> findByName(@PathVariable(name = "nom") String nom) {
+		return repo.findByNom(nom);
+
 	}
 }
